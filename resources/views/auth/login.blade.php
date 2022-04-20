@@ -4,9 +4,16 @@
     <div class="row justify-content-center form-bg-image" data-background-lg="/assets/img/illustrations/signin.svg">
         <div class="col-12 d-flex align-items-center justify-content-center">
             <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
-                <div class="text-center text-md-center mb-4 mt-md-0">
-                    <h1 class="mb-0 h3">Pariwisata</h1>
-                    <h1 class="mb-0 h3">Kediri</h1>
+                <div class=" mb-4 mt-md-0">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="{{ asset('assets/img/brand/holiyou.png') }}" width="50" height="50" alt="Logo" /> 
+                        </div>
+                        <div class="pl-5 col-10" style="padding-left:75px">
+                            <h1 class="mb-0 ml-5 h3">
+                            HOLIYOU</h1>
+                        </div>
+                    </div>
                 </div>
                 <form action="{{ route('auth') }}" method="POST" class="mt-4">
                     @csrf
