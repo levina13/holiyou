@@ -17,7 +17,7 @@
 	<div class="container sticky-top">
 		<nav class="row navbar navbar-expand-lg navbar-light bg-white">
 			<a href="{{ route('index') }}" class="navbar-brand">
-				<img src="{{ asset('frontend/images/logo_malang.png') }}" alt="Logo" />
+				<img src="{{ asset('assets/img/brand/holiyou.png') }}" alt="Logo" />
 			</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
 				<span class="navbar-toggler-icon"></span>
