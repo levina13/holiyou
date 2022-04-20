@@ -37,7 +37,7 @@
 				<div class="row">
 					<div class="col text-center">
 					<h2>Ulasan</h2>
-					<p>Saat-saat memberi mereka pengalaman terbaik</p>
+					<p>Pengalaman terbaik mereka menggunakan Holiyou</p>
 					</div>
 				</div>
 			</div>
@@ -52,12 +52,11 @@
 								<img src="https://i.pravatar.cc/300" alt="User" class="mb-4 rounded-circle" />
 								<h3 class="mb-4">Angga Risky</h3>
 								<p class="testimonial">
-									“ It was glorious and I could not stop to say wohooo for
-									every single moment Dankeeeeee “
+                                    “ Holiyou merupakan website yang luar biasa yang sangat memudahkan perjalanan wisata keluarga kami “
 								</p>
 							</div>
 							<hr />
-							<p class="trip-to mt-2">Ubud</p>
+							<p class="trip-to mt-2">Gunung Bromo</p>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-6 col-lg-4">
@@ -66,12 +65,11 @@
 								<img src="https://i.pravatar.cc/300" alt="User" class="mb-4 rounded-circle" />
 								<h3 class="mb-4">Shayna</h3>
 								<p class="testimonial">
-									“ The trip was amazing and I saw something beautiful in that
-									Island that makes me want to learn more “
+									“ Perjalanan yang tidak akan pernah terlupakan berkat kemudahan dari website Holiyou. Thank's Holiyou “
 								</p>
 							</div>
 							<hr />
-							<p class="trip-to mt-2">Nusa Penida</p>
+							<p class="trip-to mt-2">Air Terjun Coban Rondo</p>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-6 col-lg-4">
@@ -80,12 +78,11 @@
 								<img src="https://i.pravatar.cc/300" alt="User" class="mb-4 rounded-circle" />
 								<h3 class="mb-4">Shabrina</h3>
 								<p class="testimonial">
-									“ I loved it when the waves was shaking harder — I was
-									scared too, but it's very beautifull“
+									“ Awalnya takut untuk menggunakan website ini. Namun setelah mencoba sekali akhirnya tidak bisa lepas dari website ini“
 								</p>
 							</div>
 							<hr />
-							<p class="trip-to mt-2">Karimun Jawa</p>
+							<p class="trip-to mt-2">Selecta, Batu</p>
 						</div>
 					</div>
 				</div>

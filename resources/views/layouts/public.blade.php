@@ -62,7 +62,7 @@
 						Hi, User!
 					</a> -->
 					<li class="nav-item dropdown btn btn-login w-100 my-2 my-sm-0 d-flex">
-						
+
 						<button href="#" class="nav-link dropdown-toggle btn btn-login btn-block text-center align-content-center justify-content-center" id="navbardrop" data-toggle="dropdown">
 							Hi, User!
 						</button>
@@ -84,12 +84,12 @@
 						<div class="dropdown-menu">
 							@if (Auth::user()->is_admin)
 							<a href="{{ route('dashboard') }}" class="dropdown-item"><i class="fas fa-user-cog mr-2"></i> Dashboard</a>
-							@endif	
+							@endif
 							<a href="{{ route('logout') }}" role="button" type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
 						</div>
 					</li>
 					@else
-						
+
 					<li class="nav-item btn btn-login btn-navbar-right d-flex align-content-center">
 						<a href="{{ route('login') }}" class="nav-link btn btn-login" id="navbardrop">
 							Login/Register
@@ -100,7 +100,7 @@
 			</div>
 		</nav>
 	</div>
-    
+
     <!-- Header -->
 	<header class="text-center">
 		<h1>
@@ -135,16 +135,12 @@
 	<footer class="text-center text-lg-start bg-dark text-white">
   <!-- Section: Social media -->
   <section
-    class="d-flex justify-content-center justify-content-lg-between p-2 mt-5 border-bottom"
+    class="d-flex justify-content-center justify-content-lg-between p-2 mt-1 border-bottom"
   >
     <!-- Left -->
     <div class="me-5 d-none d-lg-block">
       <span>Get connected with us on social networks:</span>
-    </div>
-    <!-- Left -->
 
-    <!-- Right -->
-    <div>
       <a href="" class="me-4 text-reset">
         <i class="fab fa-facebook-f"></i>
       </a>
@@ -161,6 +157,9 @@
         <i class="fab fa-linkedin"></i>
       </a>
     </div>
+    <!-- Left -->
+
+    <!-- Right -->
     <!-- Right -->
   </section>
   <!-- Section: Social media -->
@@ -187,6 +186,7 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fa-regular fa-building"></i>
             Daerah
           </h6>
           <p>
@@ -205,6 +205,7 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fa-regular fa-link"></i>
             Useful links
           </h6>
           <p>
@@ -223,6 +224,7 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fa-regular fa-circle-user"></i>
             Contact
           </h6>
           <p><i class="fas fa-home me-3"></i> Malang, ML 1102, INDONESIA</p>
