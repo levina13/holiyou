@@ -30,31 +30,6 @@
 					</li>
 				</ul>
 
-				<!-- Search Form -->
-				{{-- <form class="form-inline my-2 my-lg-0 d-block float-none float-lg-right">
-					<li class="nav-item dropdown d-inline-block">
-						<div class="row">
-							<div class="col-8 d-flex pr-0">
-								<div class="input-group align-content-center justify-content-center">
-									<div class="input-group-prepend">
-										<span class="input-group-text input-search-icon" id="basic-addon1"><i class="fas fa-search"></i></span>
-									</div>
-									<input type="text" class="form-control form-control-sm input-search" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
-								</div>
-							</div>
-							<div class="col-2 d-flex pl-0">
-								<a href="#" class="nav-link dropdown-toggle float-left align-content-center justify-content-center" id="navbardrop" data-toggle="dropdown">
-									<i class="fas fa-lg fa-filter"></i>
-								</a>
-								<div class="dropdown-menu">
-									<a href="#" class="dropdown-item">Link</a>
-									<a href="#" class="dropdown-item">Link</a>
-									<a href="#" class="dropdown-item">Link</a>
-								</div>
-							</div>
-						</div>
-					</li>
-				</form> --}}
 
 				<!-- Mobile Button -->
 				<form class="form-inline d-block d-md-none">

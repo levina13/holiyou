@@ -152,7 +152,7 @@ header .btn-get-started:hover {
 .section-testimonial-heading {
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7f9ff));
   background: linear-gradient(#fff 0%, #f7f9ff 100%);
-  padding-top: 50px;
+  padding-top: 30px;
   min-height: 506px;
 }
 
@@ -672,5 +672,19 @@ header .btn-get-started:hover {
 
 .section-agenda-content .my-section {
   margin-top: 100px;
+}
+.gambarrr {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.gambarrr img {
+  display: block;
+  transition: transform .4s;
+}
+
+.gambarrr:hover img {
+  transform: scale(1.1);
+  transform-origin: 50% 50%;
 }
 /*# sourceMappingURL=main.css.map */
