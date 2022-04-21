@@ -37,14 +37,12 @@
 						Hi, User!
 					</a> -->
 					<li class="nav-item dropdown btn btn-login w-100 my-2 my-sm-0 d-flex">
-
 						<button href="#" class="nav-link dropdown-toggle btn btn-login btn-block text-center align-content-center justify-content-center" id="navbardrop" data-toggle="dropdown">
-							Hi, User!
+							Login/Register
 						</button>
 						<div class="dropdown-menu w-100">
-							<a href="#" class="dropdown-item"><i class="fas fa-user-circle mr-2"></i> Profil Saya</a>
-							<a href="#" class="dropdown-item"><i class="fas fa-book mr-2"></i> Agenda Wisata</a>
-							<a href="#" class="dropdown-item"><i class="fas fa-bookmark mr-2"></i> Keep</a>
+              <a href="{{ route('login') }}" class="dropdown-item"><i class="fas fa-user-circle mr-2"></i> Login </a>
+							<a href="{{ route('register') }}" class="dropdown-item"><i class="fas fa-address-card mr-2"></i> Register</a>
 						</div>
 					</li>
 				</form>

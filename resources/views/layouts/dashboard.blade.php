@@ -116,9 +116,9 @@
                 <li class="nav-item">
                     <a href="{{ route('index') }}" class="nav-link d-flex align-items-center">
                         <span class="sidebar-icon">
-                            <img src="/assets/img/brand/light.svg" height="20" width="20" alt="Volt Logo">
+                            <img src="/assets/img/brand/holiyou.png" height="30" width="30" alt="Volt Logo">
                         </span>
-                        <span class="mt-1 ms-1 sidebar-text">Pariwisata Malang</span>
+                        <span class="mt-1 ms-1 sidebar-text">HOLIYOU</span>
                     </a>
                 </li>
                 <li class="nav-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
@@ -185,18 +185,6 @@
                         <span class="sidebar-text">Pengguna</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <form action="{{ route('logout') }}" method="get">
-                        @csrf
-                        <button type="submit"
-                            class="btn btn-danger d-flex align-items-center justify-content-center btn-upgrade-pro">
-                            <span class="sidebar-icon d-inline-flex align-items-center justify-content-center me-2">
-                                <i class="fas fa-sign-out-alt"></i>
-                            </span>
-                            <span>Keluar</span>
-                        </button>
-                    </form>
-                </li>
             </ul>
         </div>
     </nav>
@@ -233,7 +221,7 @@
                                     My Profile
                                 </a>
                                 <div role="separator" class="dropdown-divider my-1"></div>
-                                <form action="{{ route('logout') }}" method="post">
+                                <form action="{{ route('logout') }}" method="get">
                                     @csrf
                                     <button type="submit" class="dropdown-item d-flex align-items-center">
                                         <svg class="dropdown-icon text-danger me-2" fill="none" stroke="currentColor"
