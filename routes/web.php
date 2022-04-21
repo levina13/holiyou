@@ -92,8 +92,8 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::prefix('dashboard')->group(function () {
-        Route::get('/', [PageController::class, 'main'])->name('dashboard');
+    Route::prefix('admin-page')->group(function () {
+        Route::get('/', [PageController::class, 'main'])->name('admin-page');
         Route::resource('kategori', KategoriPariwisataController::class);
         Route::resource('pariwisata', ObjekPariwisataController::class);
         Route::resource('kecamatan', KecamatanController::class);

@@ -1,6 +1,30 @@
 @extends('layouts.public')
 @section('layout_title', 'Daftar Wisata')
 @section('layout_content')
+
+        <section class="section-map main-section" id="popular">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center section-map-heading">
+                        <h2 class="fs-5 fw-normal mb-2 text-center"><i class="fas fa-map-marker"></i> Peta Persebaran</h2>
+                        <p class="fs-3 fw-extrabold">{{ count($wisatas) }} Objek Wisata</p>
+					</div>
+				</div>
+			</div>
+		</section>
+        <section class="section-map-content main-section" id="popular">
+            <div class="container">
+                <div class="col-12 mb-4 p-2">
+                    <div class="card bg-yellow-100 border-0 shadow">
+                        <div class="card-body p-">
+                            <div id="map" style="width: 100%; min-height: 450px;"></div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</section>
+
+
 		<section class="section-popular main-section" id="popular">
 			<div class="container">
 				<div class="row">
@@ -11,6 +35,7 @@
 				</div>
 			</div>
 		</section>
+
 
 		<section class="section-popular-content" id="popularContent">
 			<div class="container">
@@ -34,4 +59,17 @@
                 </div>
 			</div>
 		</section>
+@endsection
+@section('layout_script')
+    <script>
+        var map = L.map('map').setView([-7.9754989, 112.645687], 12);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    @foreach ($wisatas as $wisata)
+        L.marker([{{ $wisata->latitude_Y }}, {{ $wisata->longitude_X }}]).addTo(map)
+            .bindPopup("{{ $wisata->nama }}");
+    @endforeach
+    </script>
 @endsection

@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="/frontend/styles/main.css" />
 	<link rel="stylesheet" href="/frontend/libraries/fontawesome/css/all.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link type="text/css" href="/vendor/leaflet/leaflet.css" rel="stylesheet">
+
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
@@ -58,7 +60,7 @@
 						</button>
 						<div class="dropdown-menu">
 							@if (Auth::user()->is_admin)
-							<a href="{{ route('dashboard') }}" class="dropdown-item"><i class="fas fa-user-cog mr-2"></i> Dashboard</a>
+							<a href="{{ route('admin-page') }}" class="dropdown-item"><i class="fas fa-user-cog mr-2"></i> Dashboard</a>
 							@endif
 							<a href="{{ route('logout') }}" role="button" type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
 						</div>

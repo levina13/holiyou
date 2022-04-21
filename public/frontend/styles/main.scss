@@ -150,6 +150,30 @@ header {
     }
 }
 
+//map
+.section-map {
+    min-height: 540px;
+    background: #051334;
+    margin-top: -50px;
+    margin-bottom: -100px;
+
+    .section-map-heading {
+        margin-top: 150px;
+
+        h2,
+        p {
+            color: #fff;
+        }
+
+        h2 {
+            font-family: "Playfair Display", serif;
+            font-weight: bold;
+        }
+    }
+}
+
+
+
 .section-networks {
     background-color: #fff;
     margin-top: -170px;

@@ -9,7 +9,7 @@
                     <i class="fas fa-home"></i>
                 </a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin-page') }}">Admin</a></li>
             <li class="breadcrumb-item">Objek Wisata</li>
             <li class="breadcrumb-item active" aria-current="page">{{ $wisata->nama }}</li>
         </ol>
