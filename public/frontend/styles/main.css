@@ -133,6 +133,32 @@ header .btn-get-started:hover {
   color: #fff;
 }
 
+.section-map {
+  min-height: 540px;
+  background: #051334;
+  margin-top: -150px;
+  margin-bottom: -380px;
+}
+
+.section-map .section-map-heading {
+  margin-top: 75px;
+}
+
+.section-map .section-map-heading h2,
+.section-map .section-map-heading p {
+  color: #fff;
+}
+
+.section-map .section-map-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+.section-map-content  {
+  background: #051334;
+  color: #051334;
+}
+
 .section-networks {
   background-color: #fff;
   margin-top: -170px;

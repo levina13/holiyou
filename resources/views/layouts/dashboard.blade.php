@@ -62,7 +62,7 @@
 
 
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
-        <a class="navbar-brand me-lg-5" href="{{ route('dashboard') }}">
+        <a class="navbar-brand me-lg-5" href="{{ route('admin-page') }}">
             <img class="navbar-brand-dark" src="/assets/img/brand/light.svg" alt="Volt logo" /> <img
                 class="navbar-brand-light" src="/assets/img/brand/dark.svg" alt="Volt logo" />
         </a>
@@ -122,7 +122,7 @@
                     </a>
                 </li>
                 <li class="nav-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}" class="nav-link">
+                    <a href="{{ route('admin-page') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <i class="fas fa-chart-pie"></i>
                         </span>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ObjekWisatas;
+use App\Models\Ulasans;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -20,7 +21,12 @@ class PageController extends Controller
             ->join('jenis_wisatas', 'objek_wisatas.jenis_wisata', '=', 'jenis_wisatas.id_jenis_wisata')
             ->join('gambar_objeks', 'objek_wisatas.id_gambar', '=', 'gambar_objeks.id_gambar_objek')
             ->orderBy('objek_wisatas.created_at', 'DESC')->take(3)->get();
-        return view('pages.index', ['wisataPopulers' => $wisataPopulers, 'wisataPilihans'=>$wisataPilihans]);
+
+        $ulasans= Ulasans::select('ulasans.*', 'users.name as nama_pengguna', 'objek_wisatas.nama as nama_pariwisata')
+            ->join('users', 'ulasans.id_user', '=', 'users.id')
+            ->join('objek_wisatas', 'ulasans.id_objek_wisata', '=', 'objek_wisatas.id_objek_wisata')
+            ->orderBy('ulasans.created_at', 'DESC')->take(3)->get();
+        return view('pages.index', ['wisataPopulers' => $wisataPopulers, 'wisataPilihans'=>$wisataPilihans, 'ulasans'=>$ulasans]);
     }
 
     public function listWisata()
