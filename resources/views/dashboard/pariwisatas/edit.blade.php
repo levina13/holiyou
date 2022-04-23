@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('layout_title', 'Tambah Objek Wisata')
+@section('layout_title', 'Edit Objek Wisata')
 @section('layout_content')
 <div class="py-4">
     <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
