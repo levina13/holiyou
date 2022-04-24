@@ -103,3 +103,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth', 'admin']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+Route::get('/ulasan', function () {
+    return view('pages.wisatas.ulasan');
+});
