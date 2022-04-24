@@ -88,7 +88,7 @@ header .btn-get-started:hover {
   min-height: 540px;
   background: #051334;
   margin-top: -50px;
-  margin-bottom: -230px;
+  margin-bottom: -300px;
 }
 
 .section-popular .section-popular-heading {
@@ -188,7 +188,7 @@ header .btn-get-started:hover {
 }
 
 .section-testimonial-content {
-  margin-top: -300px;
+  margin-top: -400px;
   padding-bottom: 50px;
 }
 

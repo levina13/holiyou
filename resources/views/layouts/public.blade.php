@@ -97,15 +97,7 @@
 		@yield('layout_content')
 	</main>
 
-    {{-- <footer class="section-footer mt-auto mb-4 border-top">
-		<div class="container-fluid">
-			<div class="row border-top justify-content-center align-items-center pt-4">
-				<div class="col-auto text-gray-500 font-weight-light">
-					2021 Pariwisata Malang • All rights reserved
-				</div>
-			</div>
-		</div>
-	</footer>     --}}
+ 
 
 	<footer class="text-center text-lg-start bg-dark text-white">
   <!-- Section: Social media -->
@@ -157,42 +149,6 @@
         </div>
         <!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fa-regular fa-building"></i>
-            Daerah
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Batu</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Kota Malang</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Malang Kabupaten</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fa-regular fa-link"></i>
-            Useful links
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Order</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Layanan</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
-          </p>
-        </div>
         <!-- Grid column -->
 
         <!-- Grid column -->
