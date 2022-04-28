@@ -186,7 +186,7 @@
                         }
                     });
                     $.ajax({
-                        url: '/dashboard/kategori/'+id,
+                        url: '/admin-page/kategori/'+id,
                         type: 'DELETE',
                         dataType: 'html',
                         data: {method: '_DELETE', submit: true},
@@ -295,7 +295,7 @@
                 }
             });
             $.ajax({
-                url: '/dashboard/kategori/'+id,
+                url: '/admin-page/kategori/'+id,
                 type: 'PATCH',
                 dataType: 'json',
                 data: {method: '_PATCH', kategori: id, jenis:jenis},

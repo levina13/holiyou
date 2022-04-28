@@ -249,35 +249,34 @@
                         {{ config('app.name') }} Team.</p>
                 </div> --}}
 
-                <footer class="text-center text-lg-start bg-dark text-white" style="background-color: rgba(31,41,55,1) !important;">
+                <footer class="text-center text-lg-start bg-dark text-white">
   <!-- Section: Social media -->
   <section
-    class="d-flex justify-content-center justify-content-lg-between p-2 mt-5 border-bottom"
+    class="d-flex justify-content-center justify-content-lg-between p-2 mt-1 border-bottom"
   >
     <!-- Left -->
     <div class="me-5 d-none d-lg-block">
       <span>Get connected with us on social networks:</span>
+
+      <a href="" class="me-1 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-1 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-1 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-1 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-1 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
     </div>
     <!-- Left -->
 
     <!-- Right -->
-    <div>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
     <!-- Right -->
   </section>
   <!-- Section: Social media -->
@@ -301,48 +300,15 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Daerah
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Batu</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Kota Malang</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Malang Kabupaten</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Order</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Layanan</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
-          </p>
-        </div>
-        <!-- Grid column -->
 
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fa-regular fa-circle-user"></i>
             Contact
           </h6>
-          <p><i class="fas fa-home me-3"></i> Malang, ML 1102, INDONESIA</p>
+          <p><i class="fas fa-home me-2"></i> Malang, ML 1102, INDONESIA</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
             holiyou@gmail.com
@@ -363,10 +329,6 @@
   </div>
   <!-- Copyright -->
 </footer>
-            </div>
-        </footer>
-    </main>
-
     <!-- Core -->
     <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
     <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>

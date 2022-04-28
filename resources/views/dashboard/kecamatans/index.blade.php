@@ -186,7 +186,7 @@
                         }
                     });
                     $.ajax({
-                        url: '/dashboard/kecamatan/'+id,
+                        url: '/admin-page/kecamatan/'+id,
                         type: 'DELETE',
                         dataType: 'html',
                         data: {method: '_DELETE', submit: true},
@@ -295,7 +295,7 @@
                 }
             });
             $.ajax({
-                url: '/dashboard/kecamatan/'+id,
+                url: '/admin-page/kecamatan/'+id,
                 type: 'PATCH',
                 dataType: 'json',
                 data: {method: '_PATCH', id_kecamatan: id, kecamatan:kecamatan},

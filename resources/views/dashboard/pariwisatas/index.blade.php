@@ -126,7 +126,7 @@
                         }
                     });
                     $.ajax({
-                        url: '/dashboard/pariwisata/'+id,
+                        url: '/admin-page/pariwisata/'+id,
                         type: 'DELETE',
                         dataType: 'html',
                         data: {method: '_DELETE', submit: true},
