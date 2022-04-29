@@ -26,10 +26,8 @@ class KecamatanController extends Controller
             if ($kecamatan->save()){
                 return response()->json(['success'=>'Data berhasil ditambahkan.']);
             }
-
             return response()->json(['error'=>'Data gagal ditambahkan.']);
         }
-     
         return response()->json(['error'=>$validator->errors()->all()]);
     }
 

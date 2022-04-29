@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\KategoriPariwisataController;
 use App\Http\Controllers\Dashboard\KecamatanController;
 use App\Http\Controllers\Dashboard\ObjekPariwisataController;
 use App\Http\Controllers\Dashboard\PageController;
+use App\Http\Controllers\Wisata\ScheduleController;
 use App\Http\Controllers\PageController as PublicPageController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
@@ -99,7 +100,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::resource('kecamatan', KecamatanController::class);
     });
 });
-
+Route::middleware(['auth'])->group(function () {
+    Route::resource('jadwal', ScheduleController::class);
+});
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth', 'admin']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
