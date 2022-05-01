@@ -70,7 +70,7 @@
                         </div>
                         <div class="join-container">
                             {{-- <form action="" method="post"> --}}
-                                <button class="btn btn-block btn-join-now mt-3 py-2" type="submit" data-bs-toggle="modal" data-bs-target="#modal-pesan">
+                                <button class="btn agendakan btn-block btn-join-now mt-3 py-2" type="submit" data-bs-toggle="modal" data-bs-target="#modal-pesan">
                                     Agendakan Sekarang
                                 </button>
                             {{-- </form> --}}
@@ -113,6 +113,8 @@
                 </div>
             </div>
         </section>
+
+    {{-- modal pesan --}}
         <div class="modal fade" id="modal-pesan" tabindex="-1" role="dialog" aria-labelledby="modal-pesan" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -176,6 +178,11 @@
                 e.preventDefault();
                 $('#modal-pesan').modal('hide');
                 reset();
+            })
+            $(".agendakan").click(function(e){
+                e.preventDefault();
+                $('#modal-pesan').modal('show');
+                
             })
             $(".btn-pesan").click(function(e){
                 e.preventDefault();
