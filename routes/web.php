@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\ObjekPariwisataController;
 use App\Http\Controllers\Dashboard\PageController;
 use App\Http\Controllers\Wisata\ScheduleController;
 use App\Http\Controllers\PageController as PublicPageController;
+use App\Http\Controllers\Wisata\UlasanController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -29,7 +30,7 @@ Route::get('/', [PublicPageController::class, 'index'])->name('index');
 Route::get('/wisata', [PublicPageController::class, 'listWisata'])->name('public.list_wisata');
 Route::get('/wisata/{id}', [PublicPageController::class, 'wisata'])->name('public.wisata');
 Route::get('/wisata/{id}/lokasi', [PublicPageController::class, 'lokasi'])->name('public.wisata.lokasi');
-
+Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan.index');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['guest'])->group(function () {
@@ -106,6 +107,4 @@ Route::middleware(['auth'])->group(function () {
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth', 'admin']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
-Route::get('/ulasan', function () {
-    return view('pages.wisatas.ulasan');
-});
+

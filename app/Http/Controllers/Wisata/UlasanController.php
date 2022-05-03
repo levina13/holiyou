@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Wisata;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Schedules;
+use App\Models\Ulasans;
 use Exception;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class ScheduleController extends Controller
+class UlasanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,11 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-
+        $ulasans = Ulasans::select('ulasans.*', 'users.name as nama_pengguna', 'objek_wisatas.nama as nama_pariwisata')
+        ->join('users', 'ulasans.id_user', '=', 'users.id')
+        ->join('objek_wisatas', 'ulasans.id_objek_wisata', '=', 'objek_wisatas.id_objek_wisata')
+        ->orderBy('ulasans.created_at', 'DESC')->paginate(8);
+        return view('pages.wisatas.ulasan', ['ulasans'=>$ulasans]);
     }
 
     /**
@@ -39,31 +42,7 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        $id_user=Auth::user()->id;
-        
-        $validator = Validator::make($request->all(), [
-            'jumlah_orang' => 'required',
-            'id_objek_wisata' => 'required',
-            'total_anggaran' => 'required',
-            'tanggal'=>'required|after:today'
-        ]);
-
-        if ($validator->passes()) {
-            // $total_harga = $request->harga * $request->jumlah_orang;
-            $pesanan          = new Schedules();
-            $pesanan->jumlah_orang   = $request->jumlah_orang;
-            $pesanan->total_anggaran = $request->total_anggaran;
-            $pesanan->id_objek_wisata = $request->id_objek_wisata;
-            $pesanan->id_user = $id_user;
-            if ($pesanan->save()) {
-                return response()->json(['success' => 'Berhasil Memesan tiket.']);   
-            }else{
-                return response()->json(['gagal' => 'Gagal Memesan tiket.']);   
-            }
-        }else{
-            return response()->json(['error' => $validator->errors()->all()]);
-        }
-
+        //
     }
 
     /**

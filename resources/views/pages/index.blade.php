@@ -60,16 +60,20 @@
 			</div>
 		</section>
 
-
-
+		
+		
 		<section class="section-testimonial-heading" id="testimonialHeading">
 			<div class="container">
 				<div class="row">
 					<div class="col text-center">
-					<h2>Ulasan</h2>
-					<p>Pengalaman terbaik mereka menggunakan Holiyou</p>
+						<h2>Ulasan</h2>
+						<p>
+							Pengalaman terbaik mereka menggunakan Holiyou
+							<h5 style="text-align: right"><a href="{{route('ulasan.index')}}">Lihat semua>></a></h5></div>
+						</p>
 					</div>
 				</div>
+				
 			</div>
 		</section>
 
@@ -96,6 +100,9 @@
 							</div>
 						</div>
 					@endforeach
+
+					
+					
 				</div>
 			</div>
 		</section>

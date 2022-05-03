@@ -1,8 +1,9 @@
 @extends('layouts.public')
 @section('layout_title', $wisata->nama)
 @section('layout_content')
+
         <section class="section-details-header details-page-header"></section>
-        <section class="section-details-content details-page-content">
+        <section class="section-details-content details-page-content" style="margin-bottom: 30px">
             <div class="container">
                 <div class="row">
                     <div class="col p-3 p-lg-0">
@@ -191,12 +192,14 @@
                 var jumlah_orang = $("input[name='jumlah_orang']").val();
                 var total_anggaran = parseInt(jumlah_orang) * parseInt($("input[name='harga']").val());
                 var tanggal = $("input[name='tanggal']").val();
-
+                var benar = false;
                 $.ajax({
                     url: "{{ route('jadwal.store') }}",
                     type:'POST',
                     data: {_token:_token, id_objek_wisata:id_objek_wisata, jumlah_orang:jumlah_orang,total_anggaran:total_anggaran, tanggal:tanggal},
-                    success: function(data) {
+                    timeout:5000,
+
+                    success:function(data){
                         if($.isEmptyObject(data.error)){
                             Swal.fire({
                                 icon: 'question',
@@ -215,12 +218,20 @@
                                         timer: 1500
                                     });
                                     $('#modal-pesan').modal('hide');
+                                    $("input[name='jumlah_orang']").val('');
+                                    $("input[name='tanggal']").val('');
                                     reset();
                                 }
                             })
+                            deleteErrorMsg();
                         }else{
                             printErrorMsg(data.error);
                         }
+
+                    },
+                    error: function(){
+                        window.location = "{{ route('jadwal.store') }}";
+
                     }
                 });
 
@@ -232,6 +243,9 @@
                 $.each( msg, function( key, value ) {
                     $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
                 });
+            }
+            function deleteErrorMsg (msg) {
+                $(".print-error-msg").css('display','none');
             }
         });
     </script>

@@ -195,9 +195,19 @@
   <!-- Copyright -->
 </footer>
 
+	    <!-- Core -->
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+
+
+    <!-- Sweet Alerts 2 -->
+    <script src="/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset("frontend/libraries/jquery/jquery-3.4.1.min.js") }}"></script>
 	<script src="{{ asset("frontend/libraries/bootstrap/js/bootstrap.js") }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0-beta.1/leaflet.js" integrity="sha512-35Se9CS+xsRdx551wuOxxQrJi/ZpmMn6CKYXALlsLCCH4y24H7YUrhFxPBO72Un8E3fXl8miMlZreP6/Vxr5mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+ 
+ 
+ 
   @yield('layout_script')
 </body>
 </html>
