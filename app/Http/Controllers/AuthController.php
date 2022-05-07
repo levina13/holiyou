@@ -19,9 +19,13 @@ class AuthController extends Controller
     public function auth(UserAuthRequest $request)
     {
         $credentials = $request->validated();
+        if (filter_var($credentials['email_username'], FILTER_VALIDATE_EMAIL)) {
+            Auth::attempt(['email' => $credentials['email_username'], 'password' => $credentials['password']]);
+        } else {
+            Auth::attempt(['username' => $credentials['email_username'], 'password' => $credentials['password']]);
+        }
 
-
-        if (Auth::attempt($credentials)) {
+        if (Auth::check()) {
             $request->session()->regenerate();
             if (Auth::user()->is_admin) {
                 // return $credentials;

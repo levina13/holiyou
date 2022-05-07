@@ -25,7 +25,7 @@
     <title>@yield('layout_title') | {{ config('app.name') }}</title>
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon/apple-touch-icon.png">
+    {{-- <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon/apple-touch-icon.png"> --}}
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/brand/holiyou.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/brand/holiyou.png">
     <link rel="manifest" href="/assets/img/favicon/site.webmanifest">

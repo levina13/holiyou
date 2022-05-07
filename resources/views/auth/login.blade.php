@@ -31,12 +31,12 @@
                         @endif
                         <div class="form-group mb-4">
                             <div class="input-group">
-                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email" id="email" autofocus required>
+                                <input name="email_username" class="form-control @error('email_username') is-invalid @enderror" value="{{ old('email_username') }}" placeholder="Email/Username" id="email_username" autofocus required>
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="fas fa-user"></i>
                                 </span>
                             </div> 
-                            @error('email')
+                            @error('email_username')
                                 <p class="text text-danger">{{ $message }}</p>
                             @enderror
                         </div>
