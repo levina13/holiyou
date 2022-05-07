@@ -196,7 +196,7 @@
                 $.ajax({
                     url: "{{ route('jadwal.store') }}",
                     type:'POST',
-                    data: {_token:_token, id_objek_wisata:id_objek_wisata, jumlah_orang:jumlah_orang,total_anggaran:total_anggaran, tanggal:tanggal},
+                    data: {_token:_token, id_objek_wisata:id_objek_wisata, jumlah_orang:jumlah_orang,total_anggaran:total_anggaran, date:tanggal},
                     timeout:5000,
 
                     success:function(data){

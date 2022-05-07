@@ -8,6 +8,8 @@ use App\Models\Schedules;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Yajra\Datatables\Datatables;
+
 
 class ScheduleController extends Controller
 {
@@ -16,9 +18,28 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $id_user = Auth::user()->id;
+        if ($request->ajax()) {
+            $data = Schedules::select('schedules.*','schedules.date as date', 'objek_wisatas.nama as nama_objek_wisata', 'gambar_objeks.gambar as gambar')
+            ->join('objek_wisatas', 'objek_wisatas.id_objek_wisata', '=', 'schedules.id_objek_wisata')
+            ->join('gambar_objeks', 'objek_wisatas.id_gambar', '=', 'gambar_objeks.id_gambar_objek')
+            ->where('schedules.id_user', '=', $id_user)
+                ->orderBy('schedules.date', 'ASC')->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $data = [
+                        $row->id_schedule,
+                    ];
+                    return $data;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
 
+        return view('pages.wisatas.schedule');
     }
 
     /**
@@ -45,7 +66,7 @@ class ScheduleController extends Controller
             'jumlah_orang' => 'required',
             'id_objek_wisata' => 'required',
             'total_anggaran' => 'required',
-            'tanggal'=>'required|after:today'
+            'date'=>'required|after:today'
         ]);
 
         if ($validator->passes()) {
@@ -55,6 +76,7 @@ class ScheduleController extends Controller
             $pesanan->total_anggaran = $request->total_anggaran;
             $pesanan->id_objek_wisata = $request->id_objek_wisata;
             $pesanan->id_user = $id_user;
+            $pesanan->date=$request->date;
             if ($pesanan->save()) {
                 return response()->json(['success' => 'Berhasil Memesan tiket.']);   
             }else{

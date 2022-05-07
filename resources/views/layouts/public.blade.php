@@ -5,13 +5,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>@yield('layout_title') | {{ config('app.name') }}</title>
-
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/brand/holiyou.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/brand/holiyou.png">
 	<link rel="stylesheet" href="/frontend/libraries/bootstrap/css/bootstrap.css" />
 	<link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800|Playfair+Display:400,400i,700,700i,900,900i&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="/frontend/styles/main.css" />
 	<link rel="stylesheet" href="/frontend/libraries/fontawesome/css/all.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link type="text/css" href="/vendor/leaflet/leaflet.css" rel="stylesheet">
+    <!-- Data Tables -->
+    <link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -26,10 +29,12 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="navb">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item mx-md-2">
-						{{-- <a href="{{ route('public.list_wisata') }}" class="nav-link active">Destinasi Wisata</a> --}}
-					</li>
+				<ul class="navbar-nav ml-auto d-block" >
+					@if (Auth::check())
+						<li class="nav-item mx-md-2">
+							<a href="{{ route('jadwal.index') }}" class="nav-link active">Pesanan Saya</a>
+						</li>
+					@endif
 				</ul>
 
 
@@ -205,7 +210,9 @@
 	<script src="{{ asset("frontend/libraries/bootstrap/js/bootstrap.js") }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0-beta.1/leaflet.js" integrity="sha512-35Se9CS+xsRdx551wuOxxQrJi/ZpmMn6CKYXALlsLCCH4y24H7YUrhFxPBO72Un8E3fXl8miMlZreP6/Vxr5mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
- 
+     <!-- Data Tables -->
+    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
  
  
   @yield('layout_script')
