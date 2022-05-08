@@ -32,6 +32,7 @@ class ScheduleController extends Controller
                 ->addColumn('action', function ($row) {
                     $data = [
                         $row->id_schedule,
+                        $row->kode,
                     ];
                     return $data;
                 })
@@ -77,6 +78,7 @@ class ScheduleController extends Controller
             $pesanan->id_objek_wisata = $request->id_objek_wisata;
             $pesanan->id_user = $id_user;
             $pesanan->date=$request->date;
+            $pesanan->kode=sprintf("%03d", $request->id_objek_wisata) . str_replace('-', '', $request->date  ) . sprintf("%03d", $id_user) . sprintf("%03d",$request->jumlah_orang);
             if ($pesanan->save()) {
                 return response()->json(['success' => 'Berhasil Memesan tiket.']);   
             }else{
@@ -96,7 +98,8 @@ class ScheduleController extends Controller
      */
     public function show($id)
     {
-        //
+        $kode=Schedules::where('id_schedule', $id)->first();
+        return response()->json(['']);
     }
 
     /**

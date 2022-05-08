@@ -14,7 +14,8 @@ class Schedules extends Model
         'id_objek_wisata',
         'date',
         'jumlah_orang',
-        'total_anggaran'
+        'total_anggaran', 
+        'kode'
     ];
     
     protected $primaryKey = 'id_schedule';

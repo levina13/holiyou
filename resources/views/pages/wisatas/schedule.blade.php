@@ -54,9 +54,32 @@
             </div>
         </div>
     </section>
+    {{-- modal detil --}}
+    <div class="modal fade" id="modal-detil" tabindex="-1" role="dialog" aria-labelledby="modal-detil" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">QR Code</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-0">
+                        <div class="mt-1" >                            
+                            <div class="qr d-flex justify-content-center" id="qr">
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>        
+
 
 @endsection
 @section('layout_script')
+    <!-- Barcode -->
+    <script src="/vendor/qr/jquery.classyqr.min.js"></script>
+
     <script>
         $(document).ready(function(){
             var table = $('.yajra-datatable').DataTable({
@@ -102,7 +125,7 @@
                     orderable: false, 
                     searchable: false,
                     "render": function ( data, type, row, meta ) { 
-                        return '<a href="/admin-page/pariwisata/'+ data[0] +'/edit" class="btn btn-sm btn-warning btn-edit me-2" data-id="'+ data[0] +'" data-nama="'+ data[1] +'"><i class="fas fa-search me-2"></i>Detil</a>'
+                        return '<a class="btn btn-sm btn-warning btn-detil me-2" data-id="'+ data[0]+'" data-remote="/jadwal/'+data[0]+'" data-kode="'+data[1]+'"><i class="fas fa-qrcode me-2"></i> QR Code</a>'
                     },
                   },
               ],
@@ -114,5 +137,25 @@
               ]
           });
         });
+    </script>
+    <script>
+        $(document).on('click', '.btn-detil', function(e){
+            e.preventDefault();
+            var kode = $(this).data('kode');
+            $('#modal-detil').modal('show');
+            if ($('#qr').is(':empty')) {
+                $('#qr').ClassyQR({
+                create: true, // signals the library to create the image tag inside the container div.
+                type: 'text', // text/url/sms/email/call/locatithe text to encode in the QR. on/wifi/contact, default is TEXT
+                text: kode // the text to encode in the QR. 
+                });
+            }
+                // console.log(kode);
+        });
+    </script>
+    <script>
+        $(document).on('click', '.close', function(e){
+            $('#qr').empty();;
+        })
     </script>
 @endsection
