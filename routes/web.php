@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\KategoriPariwisataController;
 use App\Http\Controllers\Dashboard\KecamatanController;
 use App\Http\Controllers\Dashboard\ObjekPariwisataController;
 use App\Http\Controllers\Dashboard\PageController;
+use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Wisata\ScheduleController;
 use App\Http\Controllers\PageController as PublicPageController;
 use App\Http\Controllers\Wisata\UlasanController;
@@ -99,6 +100,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::resource('kategori', KategoriPariwisataController::class);
         Route::resource('pariwisata', ObjekPariwisataController::class);
         Route::resource('kecamatan', KecamatanController::class);
+        Route::resource('user', UserController::class);
     });
 });
 Route::middleware(['auth'])->group(function () {
