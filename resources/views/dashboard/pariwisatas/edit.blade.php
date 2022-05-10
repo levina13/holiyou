@@ -16,7 +16,9 @@
     </nav>
 </div>
 <form action="{{ route('pariwisata.update', $wisata->id_objek_wisata) }}" method="POST" enctype='multipart/form-data'>
-  @csrf
+    @method('PATCH')
+    @csrf
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="row">
       <div class="col-12 mb-4">
           <div class="card bg-yellow-100 border-0 shadow">
@@ -105,7 +107,7 @@
                                             d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
                                             clip-rule="evenodd"></path>
                                     </svg>
-                                    <input type="file" id="gambar" name="gambar" accept="image/png, image/jpeg" onchange="document.getElementById('gambar-preview').src = window.URL.createObjectURL(this.files[0])" required>
+                                    <input type="file" id="gambar" name="gambar" accept="image/png, image/jpeg" onchange="document.getElementById('gambar-preview').src = window.URL.createObjectURL(this.files[0])"  required>
                                     <div class="d-md-block text-left">
                                         <div class="fw-normal text-dark mb-1">Pilih Gambar Baru</div>
                                         <div class="text-gray small">JPG atau PNG. Maksimal 1MB</div>

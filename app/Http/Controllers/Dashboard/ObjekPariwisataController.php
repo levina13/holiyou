@@ -92,6 +92,61 @@ class ObjekPariwisataController extends Controller
         ]);
     }
 
+    public function update(Request $request, $id)
+    {
+        $validator  = Validator::make($request->all(), [
+            'nama'  => 'required|string',
+            'alamat'    => 'required|string',
+            'kecamatan' => 'required|exists:kecamatans,id_kecamatan',
+            'jenis_wisata'  => 'required|exists:jenis_wisatas,id_jenis_wisata',
+            'deskripsi'   => '',
+            'latitude_Y'    => 'required|string',
+            'longitude_X'   => 'required|string',
+            'harga' => 'required|integer',
+            'gambar' => 'required|image'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('pariwisata.edit', $id)
+            ->withErrors($validator)
+                ->withInput();
+        }
+
+        $validated  = $validator->validated();
+
+        $filename = $validated['gambar']->hashName();
+        $imagePath = $validated['gambar']->move('images/wisata/', $filename);
+
+        
+        try {
+            $wisata = ObjekWisatas::where('id_objek_wisata', $id)->first();
+            $gambar = GambarObjeks::where('id_gambar_objek', $wisata->id_gambar)->first();
+            $gambar->gambar     = $imagePath;
+            $gambar->keterangan = $validated['nama'];
+            $gambar->save();
+
+            $wisata->nama= $validated['nama'];
+            $wisata->alamat = $validated['alamat'];
+            $wisata->kecamatan = $validated['kecamatan'];
+            $wisata->jenis_wisata = $validated['jenis_wisata'];
+            $wisata->deskripsi = $validated['deskripsi'];
+            $wisata->latitude_Y = $validated['latitude_Y'];
+            $wisata->longitude_X = $validated['longitude_X'];
+            $wisata->harga = $validated['harga'];
+            $wisata->id_gambar = $gambar->id_gambar_objek;
+            $wisata->save();
+            $swal = [
+                'type'  => 'success',
+                'title' => 'Data berhasil diedit'
+            ];
+            return redirect()->route('pariwisata.index')->with('alert', $swal);
+        } catch (Exception $e) {
+            return redirect()->route('pariwisata.edit', $id)
+            ->withErrors($validator)
+                ->withInput();
+        }
+    }
+
     public function destroy($id){
         $wisata = ObjekWisatas::where('id_objek_wisata', $id)->first();
 
