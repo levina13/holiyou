@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\JenisWisatas;
 use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class KategoriPariwisataController extends Controller
 {
