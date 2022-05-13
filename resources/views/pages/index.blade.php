@@ -86,10 +86,9 @@
 								<div class="testiominal-content">
 									<img src="https://i.pravatar.cc/300" alt="User" class="mb-4 rounded-circle" />
 									<h3 class="mb-4">{{$ulasan->nama_pengguna}}</h3>
-									<p class="testimonial">
-
-										“ {{$ulasan->ulasan}} “
-									</p>
+									{{-- <p class="testimonial"> --}}
+										{!! $ulasan->ulasan !!}
+									{{-- </p> --}}
 
 									{{-- <img src={{}} alt=""> --}}
 								</div>

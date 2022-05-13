@@ -29,7 +29,7 @@
                                     <h3 class="card-title">
                                         <a href="{{ route('public.wisata', $ulasan->id_objek_wisata) }}">{{$ulasan->nama_pariwisata}}</a>
                                     </h3>
-                                    <p class="card-text">"{{$ulasan->ulasan}}"</p>
+                                    <p class="card-text">{!!$ulasan->ulasan!!}</p>
 
                                     <p class="mb-4" style="text-align: end">~{{$ulasan->nama_pengguna}}</p>
                                 </div>
