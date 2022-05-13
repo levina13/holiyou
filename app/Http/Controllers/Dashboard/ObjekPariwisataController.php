@@ -44,6 +44,8 @@ class ObjekPariwisataController extends Controller
         }
 
         $validated  = $validator->validated();
+        $gambar = $request->gambar;
+        dump($gambar);
 
         $filename = $validated['gambar']->hashName();
         $imagePath = $validated['gambar']->move('images/wisata/', $filename);
@@ -70,11 +72,11 @@ class ObjekPariwisataController extends Controller
                 'type'  => 'success',
                 'title' => 'Data berhasil ditambahkan'
             ];
-            return redirect()->route('pariwisata.index')->with('alert', $swal);
+            // return redirect()->route('pariwisata.index')->with('alert', $swal);
         } catch (Exception $e) {
-            return redirect()->route('pariwisata.create')
-                    ->withErrors($validator)
-                    ->withInput();
+            // return redirect()->route('pariwisata.create')
+            //         ->withErrors($validator)
+            //         ->withInput();
         }
 
     }
@@ -105,7 +107,6 @@ class ObjekPariwisataController extends Controller
             'harga' => 'required|integer',
             'gambar' => 'required|image'
         ]);
-
         if ($validator->fails()) {
             return redirect()->route('pariwisata.edit', $id)
             ->withErrors($validator)

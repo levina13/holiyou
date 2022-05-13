@@ -1,7 +1,23 @@
 @extends('layouts.public')
-@section('layout_title', $wisata->nama)
+@section('layout_title', $wisata->nama )
 @section('layout_content')
 
+<style>
+    .file-field input[type=file] {
+    max-width: 230px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    padding-bottom: 30px;
+    }
+    .avatar-xl{
+        width: 20rem;
+
+    }
+    .img{
+        max-width: 100%;
+    }
+</style>
         <section class="section-details-header details-page-header"></section>
         <section class="section-details-content details-page-content" style="margin-bottom: 30px">
             <div class="container">
@@ -104,11 +120,11 @@
                             </div>
                         </div>
                         <div class="join-container">
-                            <form action="" method="post">
-                                <button class="btn btn-block btn-rating mt-3 py-2" type="submit">
-                                    Beri Rating dan Ulasan
+                            {{-- <form action="" method="post"> --}}
+                                <button class="btn btn-block btn-rating mt-3 py-2" type="submit" data-bs-toggle="modal" data-bs-target="#modal-ulasan">
+                                    Beri Ulasan
                                 </button>
-                            </form>
+                            {{-- </form> --}}
                         </div>
                     </div>
                 </div>
@@ -169,6 +185,55 @@
                     </div>
                 </div>
             </div>
+        </div>    
+    
+    {{-- modal ulasan --}}
+        <div class="modal fade" id="modal-ulasan" tabindex="-1" role="dialog" aria-labelledby="modal-ulasan" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ulasan untuk {{$wisata->nama}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <div class="card p-3 p-lg-4">
+                            <div class="alert alert-danger print-error-msg-ulasan mb-0" style="display:none" role="alert">
+                                <ul class="mb-0"></ul>
+                            </div>
+                            <div class="mt-4">
+                                <form action="" id="ulasan-form" method="post">
+
+                                @csrf
+                                <!-- Form -->
+                                <div class="form-group mb-4">
+                                    <input type="hidden" name="id_objek_wisata" value="{{$wisata->id_objek_wisata}}">
+                                        <div class="col-12">
+                                            <div class="card card-body border-0 shadow mb-4">
+                                                <h2 class="h5 mb-4">Ulasan</h2>
+                                                <div class="form-group">
+                                                    <textarea id="my-editor" name="my-editor" class="form-control"></textarea>
+                                                </div>
+                                                @error('ulasan')
+                                                    <div class="text text-danger">{{ $message }}</div>
+                                                @enderror
+
+                                            </div>
+                                        </div>
+
+                                </div>
+                                <!-- End of Form -->
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-ulasan">Kirim Ulasan</button>
+                    </div>
+                </div>
+            </div>
         </div>        
 @endsection
 
@@ -185,6 +250,12 @@
                 $('#modal-pesan').modal('show');
                 
             })
+            $(".btn-rating").click(function(e){
+                e.preventDefault();
+                $('#modal-ulasan').modal('show');
+                
+            })
+
             $(".btn-pesan").click(function(e){
                 e.preventDefault();
                 var _token = $("input[name='_token']").val();
@@ -193,14 +264,7 @@
                 var total_anggaran = parseInt(jumlah_orang) * parseInt($("input[name='harga']").val());
                 var tanggal = $("input[name='tanggal']").val();
                 var benar = false;
-                $.ajax({
-                    url: "{{ route('jadwal.store') }}",
-                    type:'POST',
-                    data: {_token:_token, id_objek_wisata:id_objek_wisata, jumlah_orang:jumlah_orang,total_anggaran:total_anggaran, date:tanggal},
-                    timeout:5000,
 
-                    success:function(data){
-                        if($.isEmptyObject(data.error)){
                             Swal.fire({
                                 icon: 'question',
                                 title: 'Pesan tiket untuk'+jumlah_orang+' orang?',
@@ -210,30 +274,39 @@
                                 cancelButtonText: 'Batal'
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    Swal.fire({
-                                        icon: 'success',
-                                        title: 'Berhasil!',
-                                        text: 'Berhasil Memesan Tiket.',
-                                        showConfirmButton: false,
-                                        timer: 1500
+                                    $.ajax({
+                                        url: "{{ route('jadwal.store') }}",
+                                        type:'POST',
+                                        data: {_token:_token, id_objek_wisata:id_objek_wisata, jumlah_orang:jumlah_orang,total_anggaran:total_anggaran, date:tanggal},
+                                        timeout:5000,
+                                        success:function(data){
+                                            if($.isEmptyObject(data.error)){
+                                                Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Berhasil!',
+                                                    text: 'Berhasil Memesan Tiket.',
+                                                    showConfirmButton: false,
+                                                    timer: 1500
+                                                });
+                                                $('#modal-pesan').modal('hide');
+                                                $("input[name='jumlah_orang']").val('');
+                                                $("input[name='tanggal']").val('');
+                                                reset();
+                                            }else{
+                                                printErrorMsg(data.error);
+                                            }
+                                        },
+
+                                        error: function(){
+                                            window.location = "{{ route('jadwal.store') }}";
+                                        }
                                     });
-                                    $('#modal-pesan').modal('hide');
-                                    $("input[name='jumlah_orang']").val('');
-                                    $("input[name='tanggal']").val('');
-                                    reset();
+
                                 }
                             })
                             deleteErrorMsg();
-                        }else{
-                            printErrorMsg(data.error);
-                        }
 
-                    },
-                    error: function(){
-                        window.location = "{{ route('jadwal.store') }}";
 
-                    }
-                });
 
             }); 
         
@@ -244,9 +317,77 @@
                     $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
                 });
             }
-            function deleteErrorMsg (msg) {
+            function deleteErrorMsg () {
                 $(".print-error-msg").css('display','none');
             }
+
+
+            $(".btn-ulasan").click(function(e){
+                e.preventDefault();
+                var form = $('#ulasan-form')[0];
+                var _token = $("input[name='_token']").val();
+                var id_objek_wisata = $("input[name='id_objek_wisata']").val();
+                var date = new Date();
+                var dd = String(date.getDate()).padStart(2, '0');
+                var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = date.getFullYear();
+
+                date = yyyy + '-' + mm + '-' + dd;
+                var desc = CKEDITOR.instances['my-editor'].getData();
+                console.log(desc);
+                            Swal.fire({
+                                icon: 'question',
+                                title: 'Yakin membuat ulasan?',
+                                text: 'ulasan akan diproses',
+                                showCancelButton: true,
+                                confirmButtonText: 'Iya',
+                                cancelButtonText: 'Batal'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    $.ajax({
+                                        url: "{{ route('ulasan.store') }}",
+                                        type:'POST',
+                                        data:{_token:_token, id_objek_wisata:id_objek_wisata, ulasan:desc, date:date},
+                                        timeout:5000,                    
+                                        success:function(data){
+                                        },
+
+                                        error: function(status){
+                                            if (status.status==401) {
+                                                window.location = "{{ route('jadwal.store')  }}";
+                                            }else{
+                                                Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Berhasil!',
+                                                    text: 'Berhasil membuat ulasan.',
+                                                    showConfirmButton: false,
+                                                    timer: 1500
+                                                });
+                                                $('#modal-ulasan').modal('hide');
+                                                $("textarea[name='ulasan']").val('');
+
+                                            }
+                                        }
+                                    });
+
+                                }
+                            })
+                             deleteErrorMsgUlasan();
+
+
+            }); 
+            function printErrorMsgUlasan (msg) {
+                $(".print-error-msg-ulasan").find("ul").html('');
+                $(".print-error-msg-ulasan").css('display','block');
+                $.each( msg, function( key, value ) {
+                    $(".print-error-msg-ulasan").find("ul").append('<li>'+value+'</li>');
+                });
+            }
+            function deleteErrorMsgUlasan () {
+                $(".print-error-msg-ulasan").css('display','none');
+            }
+
+
         });
     </script>
 

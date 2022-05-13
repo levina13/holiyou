@@ -101,10 +101,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::resource('pariwisata', ObjekPariwisataController::class);
         Route::resource('kecamatan', KecamatanController::class);
         Route::resource('user', UserController::class);
+        
     });
 });
 Route::middleware(['auth'])->group(function () {
     Route::resource('jadwal', ScheduleController::class);
+    Route::post('/ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
 });
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth', 'admin']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();

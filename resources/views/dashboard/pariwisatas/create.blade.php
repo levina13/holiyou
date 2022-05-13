@@ -193,6 +193,7 @@
             marker = new L.Marker([e.latlng.lat, e.latlng.lng]).addTo(map); // set
             $('#latitude_Y').val(e.latlng.lat);
             $('#longitude_X').val(e.latlng.lng);
+            
         });
 
         $('#latitude_Y').on('keyup', function () {
@@ -229,4 +230,5 @@
             $("#jenis_wisata").val({{ old('jenis_wisata') }}).change();
         @endif
     </script>
+
 @endsection

@@ -15,7 +15,7 @@
   <link type="text/css" href="/vendor/leaflet/leaflet.css" rel="stylesheet">
     <!-- Data Tables -->
     <link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
-
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
@@ -213,8 +213,18 @@
      <!-- Data Tables -->
     <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
- 
- 
+	<!-- CKEditor -->
+	<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+    <script>
+        var options = {
+            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        };
+    </script>
+    <script>
+        CKEDITOR.replace('my-editor', options);
+    </script>
+
   @yield('layout_script')
 </body>
 </html>

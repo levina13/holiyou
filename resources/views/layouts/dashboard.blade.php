@@ -53,6 +53,7 @@
 
     <!-- Custom CSS -->
     <link type="text/css" href="/css/app.css" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
 
