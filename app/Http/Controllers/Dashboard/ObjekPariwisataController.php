@@ -71,11 +71,11 @@ class ObjekPariwisataController extends Controller
                 'type'  => 'success',
                 'title' => 'Data berhasil ditambahkan'
             ];
-            // return redirect()->route('pariwisata.index')->with('alert', $swal);
+            return redirect()->route('pariwisata.index')->with('alert', $swal);
         } catch (Exception $e) {
-            // return redirect()->route('pariwisata.create')
-            //         ->withErrors($validator)
-            //         ->withInput();
+            return redirect()->route('pariwisata.create')
+                    ->withErrors($validator)
+                    ->withInput();
         }
 
     }
