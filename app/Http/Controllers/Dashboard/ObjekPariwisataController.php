@@ -45,7 +45,6 @@ class ObjekPariwisataController extends Controller
 
         $validated  = $validator->validated();
         $gambar = $request->gambar;
-        dump($gambar);
 
         $filename = $validated['gambar']->hashName();
         $imagePath = $validated['gambar']->move('images/wisata/', $filename);
