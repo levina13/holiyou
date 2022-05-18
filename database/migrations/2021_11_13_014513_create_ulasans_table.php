@@ -15,9 +15,7 @@ class CreateUlasansTable extends Migration
     {
         Schema::create('ulasans', function (Blueprint $table) {
             $table->id('id_ulasan');
-            $table->string('judul');
             $table->text('ulasan');
-            $table->string('gambar');
             $table->date('date');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
