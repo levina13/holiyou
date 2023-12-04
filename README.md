@@ -7,9 +7,13 @@ this is the manualbook for using holiyou: [https://drive.google.com/file/d/1AK59
 ## Requirements
 
 PHP >= 7.4
+
 Composer
+
 Node.js
+
 npm
+
 Xampp or other server app
 
 ### Installation
